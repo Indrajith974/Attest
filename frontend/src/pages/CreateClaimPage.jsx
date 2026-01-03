@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { claims } from '../services/api';
 import Disclaimer from '../components/Disclaimer';
-import { CLAIM_TEMPLATES, getTemplateById } from '../data/claimTemplates';
+import { CLAIM_TEMPLATES, getTemplateById } from '../data/claimTemplates.js';
 
 const CATEGORIES = ['Residence', 'Employment', 'Dependency', 'Education', 'Other'];
 
