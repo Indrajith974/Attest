@@ -1,80 +1,94 @@
-# Attest - Railway Deployment Guide
+# Attest - Koyeb Deployment Guide
 
-Deploy Attest **FREE** on Railway.app (Frontend + Backend together)!
+Deploy Attest **FREE FOREVER** on Koyeb!
 
 ---
 
-## Railway Free Tier
-- **$5 credit/month** (enough for small apps)
-- **No sleep** like Heroku
-- **Auto-deploy** from GitHub
-- **Persistent disk** for SQLite
+## Koyeb Free Tier
+- ✅ **2 apps free** forever
+- ✅ **No sleep** - always on
+- ✅ **Auto-deploy** from GitHub
+- ✅ **Free SSL/HTTPS**
+- ✅ **Global CDN**
 
 ---
 
 ## Step 1: Sign Up
 
-1. Go to https://railway.app
-2. Click **"Start a New Project"**
+1. Go to https://www.koyeb.com
+2. Click **"Get Started Free"**
 3. Sign up with **GitHub**
 
 ---
 
-## Step 2: Deploy from GitHub
+## Step 2: Create New Service
 
-1. Click **"Deploy from GitHub repo"**
-2. Select **"Attest"** repository
-3. Railway auto-detects Node.js
+1. Click **"Create Web Service"**
+2. Select **"GitHub"**
+3. Choose **"Indrajith974/Attest"** repository
+4. Branch: **master**
 
 ---
 
-## Step 3: Configure
+## Step 3: Configure Build
 
-Railway will create a service. Click on it and:
-
-### General Settings:
 | Setting | Value |
 |---------|-------|
-| Root Directory | `/` (leave empty) |
-| Watch Paths | `backend/**` |
-
-### Build Settings:
-| Setting | Value |
-|---------|-------|
-| Build Command | `cd frontend && npm install && npm run build && cd ../backend && npm install` |
-| Start Command | `cd backend && node src/index.js` |
+| Builder | **Dockerfile** |
+| Dockerfile location | `Dockerfile` |
+| Instance type | **Free** (nano) |
+| Region | Frankfurt (or closest) |
 
 ---
 
 ## Step 4: Add Environment Variables
 
-Go to **Variables** tab and add:
+Click **"Add variable"** for each:
 
 | Variable | Value |
 |----------|-------|
 | `NODE_ENV` | `production` |
-| `PORT` | `${{RAILWAY_PORT}}` |
-| `SESSION_SECRET` | (click "Generate" for random value) |
+| `PORT` | `8000` |
+| `SESSION_SECRET` | (generate random 64 chars) |
 | `RESEND_API_KEY` | `re_Go2vniLr_BDbReh7x6qMVa4ojPc83Krar` |
 | `RESEND_FROM` | `Attest <onboarding@resend.dev>` |
-| `FRONTEND_URL` | `https://${{RAILWAY_PUBLIC_DOMAIN}}` |
+| `FRONTEND_URL` | `https://attest-YOUR_ID.koyeb.app` |
 | `DATABASE_PATH` | `./data/attest.db` |
 
 ---
 
 ## Step 5: Deploy!
 
-Click **"Deploy"** and wait 2-3 minutes.
-
-Your app will be live at: `https://attest-production-xxxx.up.railway.app` 🚀
+1. Set **App name**: `attest`
+2. Click **"Deploy"**
+3. Wait 3-5 minutes for build
 
 ---
 
-## That's It!
+## Your App URL
 
-Railway handles everything:
-- ✅ Builds frontend
-- ✅ Runs backend
-- ✅ Serves static files
-- ✅ Automatic HTTPS
-- ✅ Auto-redeploy on git push
+After deployment, your app will be at:
+```
+https://attest-YOUR_ID.koyeb.app
+```
+
+---
+
+## ⚠️ Important: Update FRONTEND_URL
+
+After first deploy:
+1. Copy your actual URL from Koyeb dashboard
+2. Go to **Settings** → **Environment Variables**
+3. Update `FRONTEND_URL` with your actual URL
+4. Redeploy
+
+---
+
+## That's it! 🚀
+
+Your full-stack app is now live with:
+- ✅ Frontend (React)
+- ✅ Backend (Node.js)
+- ✅ SQLite Database
+- ✅ File uploads
+- ✅ Email OTP
